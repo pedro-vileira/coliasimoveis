@@ -1,0 +1,3 @@
+import type {Metadata} from 'next'; import {demoProperties} from '@/lib/properties'; import {PropertyCatalog} from '@/components/property-catalog';
+export const metadata:Metadata={title:'Imóveis selecionados',description:'Explore oportunidades residenciais e comerciais.'};
+export default function Imoveis(){return <section className="page-shell"><div className="page-intro"><div className="section-marker">PORTFÓLIO <span>— 01 / IMÓVEIS</span></div><h1>Imóveis<br/><em>selecionados.</em></h1><p>Uma seleção de oportunidades residenciais e comerciais.</p></div><PropertyCatalog properties={demoProperties}/></section>}

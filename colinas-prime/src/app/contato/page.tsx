@@ -1,0 +1,3 @@
+import type {Metadata} from 'next'; import {ContactForm} from '@/components/contact-form';
+export const metadata:Metadata={title:'Contato'};
+export default function Contato(){return <section className="page-shell contact-page"><div className="section-marker">CONTATO <span>— FALE COM A COLINAS</span></div><div className="contact-layout"><div><h1>Vamos conversar<span>.</span></h1><p>Conte o que você procura. Nossa equipe dará continuidade ao contato.</p><div className="contact-detail"><span>LOCALIZAÇÃO</span><p>São José dos Campos · SP</p></div><div className="contact-detail"><span>OUTROS CANAIS</span><p>WhatsApp, telefone e e-mail<br/><small>Dados oficiais pendentes de configuração.</small></p></div></div><div><ContactForm/></div></div></section>}

@@ -1,0 +1,36 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model Property {
+ id String @id @default(cuid())
+ kenloId String? @unique @map("kenlo_id")
+ slug String @unique
+ code String?
+ title String
+ description String?
+ propertyType String? @map("property_type")
+ transactionType String? @map("transaction_type")
+ price Decimal? @db.Decimal(14,2)
+ condominiumFee Decimal? @map("condominium_fee") @db.Decimal(14,2)
+ iptu Decimal? @db.Decimal(14,2)
+ city String?
+ neighborhood String?
+ publicAddress String? @map("public_address")
+ builtArea Decimal? @map("built_area") @db.Decimal(10,2)
+ landArea Decimal? @map("land_area") @db.Decimal(10,2)
+ bedrooms Int?
+ suites Int?
+ bathrooms Int?
+ parkingSpaces Int? @map("parking_spaces")
+ features Json?
+ images Json?
+ isFeatured Boolean @default(false) @map("is_featured")
+ isPublished Boolean @default(false) @map("is_published")
+ isDemo Boolean @default(false) @map("is_demo")
+ sourcePayload Json? @map("source_payload")
+ lastSyncedAt DateTime? @map("last_synced_at")
+ createdAt DateTime @default(now()) @map("created_at")
+ updatedAt DateTime @updatedAt @map("updated_at")
+ @@index([isPublished, isFeatured])
+ @@index([city, neighborhood])
+ @@map("properties")
+}
