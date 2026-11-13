@@ -1,0 +1,3 @@
+import {NextResponse} from 'next/server'; import {z} from 'zod';
+const schema=z.object({name:z.string().min(2),email:z.email(),phone:z.string().optional(),subject:z.string().optional(),message:z.string().min(10)});
+export async function POST(req:Request){try{const parsed=schema.safeParse(await req.json());if(!parsed.success)return NextResponse.json({error:'Dados inválidos.'},{status:400});if(!process.env.CONTACT_EMAIL)return NextResponse.json({error:'Canal de recebimento ainda não configurado.'},{status:503});return NextResponse.json({error:'Configure um provedor de envio antes de ativar o formulário.'},{status:503});}catch{return NextResponse.json({error:'Requisição inválida.'},{status:400})}}
