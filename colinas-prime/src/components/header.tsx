@@ -1,2 +1,0 @@
-import Link from 'next/link';
-export function Header(){return <header className="site-header"><Link href="/" className="wordmark" aria-label="Colinas Imóveis Prime — início">COLINAS<span>®</span><small>IMÓVEIS PRIME</small></Link><nav><Link href="/imoveis">Imóveis</Link><Link href="/sobre">Sobre</Link><Link href="/contato">Contato</Link></nav><Link className="header-contact" href="/contato">Fale com a Colinas <span>↗</span></Link></header>}
